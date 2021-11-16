@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import routes from '@/routes'
+import { BrowserRouter } from 'react-router-dom'
+import CommonModals from '@/components/CommonModals/CommonModals'
+// 容器型组件
+function App(props) {
+  // TODO：判断用户类型，role=1时才能跳转至admin系统
+  // TODO：路由集中管理，renderRoutes
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      {routes}
+      <CommonModals></CommonModals>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
