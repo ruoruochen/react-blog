@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Input } from 'antd'
-import { SearchOutlined } from '@ant-design/icons'
+import { Input, Icon } from 'antd'
 export default class Search extends Component {
   constructor(props) {
     super(props)
@@ -18,7 +17,7 @@ export default class Search extends Component {
     const { keyword } = this.state
     return (
       <div id="search-box">
-        <SearchOutlined
+        <Icon
           type="search"
           className="search-icon"
           onClick={(e) =>

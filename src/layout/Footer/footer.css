@@ -1,0 +1,11 @@
+.footer {
+  padding: 20px 0;
+  background: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+  position: relative;
+  text-align: center;
+  color: #8f8f8f;
+}
+.footer .fighting {
+  color: #ff5777;
+}

@@ -1,94 +1,66 @@
 .app-header {
+  display: flex;
   padding: 0;
   background: #fff;
-  -webkit-box-shadow: 0 2px 8px #f0f1f2;
   box-shadow: 0 2px 8px #f0f1f2;
   position: relative;
   z-index: 10;
   max-width: 100%;
+  overflow: hidden;
 }
-.app-header .header-left {
-  text-align: center;
+.app-header .header-blog-name {
+  padding: 0 40px;
+}
+.app-header .header-blog-name .panda-icon svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: text-bottom;
+}
+.app-header .header-blog-name .blog-name {
   font-size: 20px;
-  position: relative;
+  text-align: center;
+  padding-left: 20px;
 }
-.app-header .header-left .blog-name {
-  padding-left: 10px;
+.app-header #search-box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 250px;
+  height: 25px;
+  line-height: 25px;
+  margin: 20px 0px;
+  padding: 15px 8px;
+  border-left: 2px solid #ebedf0;
 }
-.app-header .header-left .header-dropdown {
-  width: 100vw;
-  left: 0 !important;
-}
-.app-header .header-left .header-dropdown-icon {
-  display: none;
-}
-.app-header .header-left .search-input {
-  width: calc(100vw - 50px);
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
-.app-header .header-right {
-  height: 64px;
-  line-height: 64px;
-  width: 100%;
-  position: relative;
-}
-.app-header .header-right #search-box {
-  float: left;
-  height: 22px;
-  padding-left: 16px;
-  line-height: 22px;
-  margin: 22px auto 0px;
-  border-left: 1px solid #ebedf0;
-}
-.app-header .header-right #search-box .search-icon {
+.app-header #search-box .search-icon {
   color: #ced4d9;
   position: relative;
   top: 0.5px;
   cursor: pointer;
 }
-.app-header .header-right #search-box .search-input {
+.app-header #search-box .search-input {
   font-size: 14px;
-  margin-top: -5px;
   width: 200px;
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   background: transparent;
 }
-.app-header .header-right #search-box .search-input::placeholder {
+.app-header #search-box .search-input::placeholder {
   color: #a3b1bf;
 }
-.app-header .header-right .header-nav {
+.app-header .header-nav {
+  display: flex;
   border: 0;
-  float: right;
   font-size: 14px;
   font-variant: tabular-nums;
 }
-.app-header .header-right .header-nav.ant-menu-horizontal {
-  border-bottom: none;
+.app-header .header-nav .nav-menu-item {
+  margin: 10px 0;
 }
-.app-header .header-right .header-nav.ant-menu-horizontal > .ant-menu-item {
-  height: 64px;
-  line-height: 60px;
-  min-width: 72px;
-  border-top: 2px solid transparent;
+.app-header .header-userInfo {
+  padding: 0 20px 0 16px;
 }
-.app-header .header-right .header-nav.ant-menu-horizontal > .ant-menu-item:hover {
-  border-top: 2px solid #1890ff;
-  border-bottom: 2px solid transparent;
-}
-.app-header .header-right .header-nav.ant-menu-horizontal > .ant-menu-item-selected {
-  border-top: 2px solid #1890ff;
-  border-bottom: 2px solid transparent;
-}
-.app-header .header-right .header-nav.ant-menu-horizontal > .ant-menu-item-selected a {
-  color: #1890ff;
-}
-.app-header .header-right .header-nav > .ant-menu-item {
-  text-align: center;
-}
-.app-header .header-right .header-userInfo {
-  float: right;
-  padding: 0 40px 0 16px;
+.app-header .header-userInfo button {
+  margin: 0 8px;
 }

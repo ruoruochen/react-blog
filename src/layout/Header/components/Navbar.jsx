@@ -6,19 +6,22 @@ export default class Navbar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      current: 0,
+      current: '/',
     }
   }
-  handleClick = (e) => {}
+  handleClick = (e) => {
+    this.setState({ current: e.key })
+  }
   render() {
     return (
       <Menu
         onClick={this.handleClick}
         selectedKeys={[this.state.current]}
         className="header-nav"
+        mode="horizontal"
       >
         {navlist.map((nav) => (
-          <Menu.Item key={nav.link}>
+          <Menu.Item key={nav.link} className="nav-menu-item">
             <Link to={nav.link}>
               <Icon type={nav.icon} />
               <span className="nav-text">{nav.title}</span>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Modal, Form, Input, Button } from 'antd'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
 import emitter from '@/utils/events.js'
 import { login, register } from '@/redux/user/actions'
@@ -22,14 +23,23 @@ class SignModal extends Component {
       this.setState({ modalData })
     })
   }
+
   // 提交表单
   handleSubmit = (e) => {
-    console.log('submit')
+    console.log('submit2sss2', this.props.form)
+
     e.preventDefault()
-    const action = this.state.modalData.type === 'login' ? login : register
-    this.props.dispatch(action())
+    this.props.form.validateFieldsAndScroll((errors, values) => {
+      if (errors) return
+      const action = this.state.modalData.type === 'login' ? login : register
+      this.props.dispatch(action(values))
+    })
   }
-  handleCancel = (e) => {}
+  handleCancel = () => {
+    this.setState((state) => ({
+      modalData: { ...state.modalData, visible: false },
+    }))
+  }
   compareToFirstPassword = (rule, value, callback) => {
     const form = this.props.form
     if (value && value !== form?.getFieldValue('password')) {
@@ -41,7 +51,7 @@ class SignModal extends Component {
   render() {
     const { modalData } = this.state
     const { type, title, visible, operator } = modalData || {}
-    // const { getFieldDecorator } = this.props.form
+    const { getFieldDecorator } = this.props.form
     return (
       <Modal
         title={title}
@@ -49,47 +59,46 @@ class SignModal extends Component {
         onCancel={this.handleCancel}
         footer={null}
       >
-        <Form onSubmit={this.handleSubmit} className="common-form">
+        <Form
+          onSubmit={this.handleSubmit}
+          className="common-form"
+          layout="horizontal"
+        >
           {type === 'login' ? (
             <>
               <Form.Item label="用户名">
-                {/* {getFieldDecorator('account', {
+                {getFieldDecorator('account', {
                   rules: [{ required: true, message: 'Username is required' }],
-                })(<Input placeholder="请输入用户名" />)} */}
-                <Input placeholder="请输入用户名" />
+                })(<Input placeholder="请输入用户名" />)}
               </Form.Item>
               <Form.Item label="密码">
-                {/* {getFieldDecorator('password', {
+                {getFieldDecorator('password', {
                   rules: [{ required: true, message: 'Password is required' }],
-                })(<Input placeholder="请输入密码" type="password" />)} */}
-                <Input placeholder="请输入密码" type="password" />
+                })(<Input placeholder="请输入密码" type="password" />)}
               </Form.Item>
             </>
           ) : (
             <>
               <Form.Item label="用户名">
-                {/* {getFieldDecorator('username', {
+                {getFieldDecorator('username', {
                   rules: [{ required: true, message: 'Username is required' }],
-                })(<Input placeholder="请输入用户名" />)} */}
-                <Input placeholder="请输入用户名" />
+                })(<Input placeholder="请输入用户名" />)}
               </Form.Item>
               <Form.Item label="密码">
-                {/* {getFieldDecorator('password', {
+                {getFieldDecorator('password', {
                   rules: [{ required: true, message: 'Password is required' }],
-                })(<Input placeholder="请输入密码" type="password" />)} */}
-                <Input placeholder="请输入密码" type="password" />
+                })(<Input placeholder="请输入密码" type="password" />)}
               </Form.Item>
               <Form.Item label="确认密码">
-                {/* {getFieldDecorator('confirm', {
+                {getFieldDecorator('confirm', {
                   rules: [
                     { required: true, message: 'Password is required' },
                     { validator: this.compareToFirstPassword },
                   ],
-                })(<Input placeholder="确认密码" type="password" />)} */}
-                <Input placeholder="确认密码" type="password" />
+                })(<Input placeholder="确认密码" type="password" />)}
               </Form.Item>
               <Form.Item label="邮箱">
-                {/* {getFieldDecorator('email', {
+                {getFieldDecorator('email', {
                   rules: [
                     {
                       type: 'email',
@@ -97,8 +106,7 @@ class SignModal extends Component {
                     },
                     { required: true, message: 'Please input your E-mail!' },
                   ],
-                })(<Input placeholder="请输入您的邮箱" />)} */}
-                <Input placeholder="请输入您的邮箱" />
+                })(<Input placeholder="请输入您的邮箱" />)}
               </Form.Item>
             </>
           )}
@@ -110,4 +118,7 @@ class SignModal extends Component {
     )
   }
 }
-export default connect((state) => state.user)(SignModal)
+export default compose(
+  Form.create(),
+  connect((state) => state.user)
+)(SignModal)

@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
     "@babel/core": "7.12.3",
     "@babel/plugin-syntax-jsx": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
@@ -14,6 +13,7 @@
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "antd": "3.26.19",
+    "axios": "^0.24.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.0",
     "babel-loader": "8.1.0",
@@ -63,6 +63,7 @@
     "react-router-config": "^5.1.1",
     "react-router-dom": "^6.0.2",
     "redux": "^4.1.2",
+    "redux-thunk": "^2.4.0",
     "resolve": "1.18.1",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "^10.0.5",
