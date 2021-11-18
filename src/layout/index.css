@@ -1,0 +1,13 @@
+.container-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 30px 0;
+  background-color: #fff;
+}
+.container-box .app-sidebar {
+  width: 300px;
+}
+.container-box .main-container {
+  flex-grow: 1;
+}

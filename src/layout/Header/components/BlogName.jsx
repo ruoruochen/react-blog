@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PandaIcon from '@/components/SvgIcon'
+import { PandaIcon } from '@/components/SvgIcon'
 import { HEADER_BLOG_NAME } from '@/config'
 export default class BlogName extends Component {
   render() {

@@ -3,7 +3,7 @@ import './footer.css'
 export default class Footer extends Component {
   render() {
     return (
-      <footer class="footer">
+      <footer className="footer">
         <div>
           本系统由React + Node + Antd 联合开发 <br />
           RuoruoChen's Blog

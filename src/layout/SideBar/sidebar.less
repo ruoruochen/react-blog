@@ -1,0 +1,66 @@
+.app-sidebar {
+  border-right: 1px solid #ebedf0;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.65);
+  .sidebar-avatar {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+  }
+  .sidebar-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  .introduce-myself {
+    color: rgb(127, 127, 127);
+    .intro-major,
+    .intro-schooltime {
+      color: #e45b42;
+    }
+    .intro-location {
+      margin-top: 5px;
+      .location-icon {
+        margin-right: 5px;
+      }
+    }
+    .intro-tech-stack li {
+      list-style: none;
+    }
+  }
+
+  .home-pages {
+    padding: 0;
+    line-height: 40px;
+    color: rgb(127, 127, 127);
+    display: flex;
+    justify-content: center;
+    .homepage-icon {
+      width: 20px;
+      height: 20px;
+      font-size: 16px;
+    }
+    li {
+      padding: 0 8px;
+      cursor: pointer;
+      list-style: none;
+      a {
+        vertical-align: top;
+        padding-left: 5px;
+        color: inherit;
+      }
+    }
+  }
+
+  .tag-list {
+    overflow: hidden;
+    text-align: left;
+    padding-left: 20px;
+    .ant-tag {
+      margin-bottom: 6px;
+    }
+    a {
+      color: inherit;
+    }
+  }
+}

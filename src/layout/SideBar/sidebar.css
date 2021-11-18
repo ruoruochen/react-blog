@@ -1,0 +1,64 @@
+.app-sidebar {
+  border-right: 1px solid #ebedf0;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.65);
+}
+.app-sidebar .sidebar-avatar {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+}
+.app-sidebar .sidebar-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.app-sidebar .introduce-myself {
+  color: #7f7f7f;
+}
+.app-sidebar .introduce-myself .intro-major,
+.app-sidebar .introduce-myself .intro-schooltime {
+  color: #e45b42;
+}
+.app-sidebar .introduce-myself .intro-location {
+  margin-top: 5px;
+}
+.app-sidebar .introduce-myself .intro-location .location-icon {
+  margin-right: 5px;
+}
+.app-sidebar .introduce-myself .intro-tech-stack li {
+  list-style: none;
+}
+.app-sidebar .home-pages {
+  padding: 0;
+  line-height: 40px;
+  color: #7f7f7f;
+  display: flex;
+  justify-content: center;
+}
+.app-sidebar .home-pages .homepage-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+}
+.app-sidebar .home-pages li {
+  padding: 0 8px;
+  cursor: pointer;
+  list-style: none;
+}
+.app-sidebar .home-pages li a {
+  vertical-align: top;
+  padding-left: 5px;
+  color: inherit;
+}
+.app-sidebar .tag-list {
+  overflow: hidden;
+  text-align: left;
+  padding-left: 20px;
+}
+.app-sidebar .tag-list .ant-tag {
+  margin-bottom: 6px;
+}
+.app-sidebar .tag-list a {
+  color: inherit;
+}
