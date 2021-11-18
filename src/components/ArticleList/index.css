@@ -1,0 +1,20 @@
+.article-list .article-list-item {
+  padding: 16px 20px;
+  border: 1px solid #ebedf0;
+}
+.article-list .article-list-item:hover {
+  background: #effbff;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
+}
+.article-list .article-list-item:nth-child(n + 2) {
+  margin-top: 15px;
+}
+.article-list .article-list-item .list-item-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #394d69;
+}
+.article-list .article-list-item .list-item-posttime {
+  font-size: 12px;
+  margin-left: 30px;
+}

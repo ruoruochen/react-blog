@@ -6,22 +6,8 @@ import './sidebar.css'
 export default class Sidebar extends Component {
   // tagList从Props进来 即redux传递
   render() {
-    const {
-      tagList = [
-        { name: '浏览器1111' },
-        { name: 'HTTPsss' },
-        { name: '浏览sss器' },
-        { name: 'HTTP' },
-        { name: '浏览c器' },
-        { name: 'HTTP' },
-        { name: '浏d览器' },
-        { name: 'HTTP' },
-        { name: '浏览器' },
-        { name: 'HTTP' },
-        { name: '浏览器' },
-        { name: 'HTTP' },
-      ],
-    } = this.props
+    const { tagList = [{ name: '浏览器1111' }, { name: 'HTTPsss' }] } =
+      this.props
     return (
       <aside className="app-sidebar">
         {/* TODO：为什么无法访问相对路径的图像 */}

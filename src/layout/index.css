@@ -7,7 +7,11 @@
 }
 .container-box .app-sidebar {
   width: 300px;
+  min-width: 300px;
 }
 .container-box .main-container {
   flex-grow: 1;
+  padding: 0 35px;
+  margin: 0 20px;
+  border: 1px solid #ebedf0;
 }

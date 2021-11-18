@@ -81,6 +81,23 @@ const LocationSvg = () => (
   </svg>
 )
 
+const CommentSvg = () => (
+  <svg
+    t="1637235431442"
+    viewBox="0 0 1024 1024"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    p-id="2587"
+    width="18px"
+    height="18px"
+  >
+    <path
+      d="M401.807 730.808l68.464-70.68A30 30 0 0 1 491.819 651H742c16.569 0 30-13.431 30-30V297c0-16.569-13.431-30-30-30H282c-16.569 0-30 13.431-30 30v324c0 16.569 13.431 30 30 30h72.1a30 30 0 0 1 28.535 20.739l19.172 59.07zM332.297 711H282c-49.706 0-90-40.294-90-90V297c0-49.706 40.294-90 90-90h460c49.706 0 90 40.294 90 90v324c0 49.706-40.294 90-90 90H504.527l-94.313 97.368c-15.734 16.244-43.102 9.899-50.083-11.611L332.297 711z"
+      p-id="2588"
+    ></path>
+  </svg>
+)
+
 const PandaIcon = (props) => (
   <Icon component={PandaSvg} {...props} className="panda-icon" />
 )
@@ -91,4 +108,6 @@ const CSDNIcon = (props) => (
 
 const LocationIcon = (props) => <Icon component={LocationSvg} {...props} />
 
-export { PandaIcon, CSDNIcon, LocationIcon }
+const CommentIcon = (props) => <Icon component={CommentSvg} {...props} />
+
+export { PandaIcon, CSDNIcon, LocationIcon, CommentIcon }
