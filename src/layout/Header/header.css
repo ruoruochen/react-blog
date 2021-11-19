@@ -3,10 +3,12 @@
   padding: 0;
   background: #fff;
   box-shadow: 0 2px 8px #f0f1f2;
-  position: relative;
+  position: fixed;
   z-index: 10;
   max-width: 100%;
   overflow: hidden;
+  left: 0;
+  right: 0;
 }
 .app-header .header-blog-name {
   padding: 0 40px;

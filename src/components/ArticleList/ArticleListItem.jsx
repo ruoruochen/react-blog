@@ -1,14 +1,19 @@
 import React from 'react'
 import { Divider, Icon } from 'antd'
-import { CommentIcon } from '@/components/SvgIcon'
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import { components } from './highlights.js'
-
+import ArticleTag from './ArticleTag'
+import { useNavigate } from 'react-router-dom'
 export default function ArticleListItem(props) {
   const { data } = props
+  const navigate = useNavigate()
+  const handleClick = (e) => {
+    navigate(`detail/${data?.id}`, { replace: true })
+  }
+
   return (
-    <li className="article-list-item">
+    <li className="article-list-item" onClick={handleClick}>
       <Divider orientation="left">
         <span className="list-item-title">{data.title}</span>
         <span className="list-item-posttime">
@@ -21,15 +26,16 @@ export default function ArticleListItem(props) {
         components={components}
         children={data.content}
         remarkPlugins={[gfm]}
-        className="article-detail content"
+        className="article-detail"
       />
 
       <div className="list-item-others">
-        <CommentIcon></CommentIcon>
+        <Icon type="message" />
+        <span className="comment-count">{data?.comments?.length}</span>
         <Icon type="eye"></Icon>
-        <span>{data.viewCount}</span>
+        <span className="view-count">{data.viewCount}</span>
 
-        {/* <ArticleTag tagList={item.tags} categoryList={item.categories} /> */}
+        <ArticleTag tagList={data.tags} />
       </div>
     </li>
   )

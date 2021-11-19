@@ -1,0 +1,30 @@
+.quicklink {
+  width: 300px;
+  height: calc(100% - 100px);
+  margin-left: 40px;
+  position: fixed;
+  right: 10px;
+  top: 80px;
+}
+.quicklink .quick-title {
+  font-size: 18px;
+}
+.quicklink .quick-list {
+  height: 65vh;
+  overflow-y: auto;
+}
+.quicklink .quick-list .list-item {
+  display: block;
+  padding: 7px 3px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.quicklink .quick-list .list-item a {
+  color: #7f7f7f;
+}
+.quicklink .quick-list .list-item:hover {
+  background-color: #f0f2f5;
+}
+.quicklink .quick-list .list-item:hover a {
+  color: #40a9ff;
+}

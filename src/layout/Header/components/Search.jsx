@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Input, Icon } from 'antd'
+import eventEmitter from '@/utils/events'
 export default class Search extends Component {
   constructor(props) {
     super(props)
@@ -8,11 +9,22 @@ export default class Search extends Component {
     }
   }
 
-  handleChange = (e) => {}
+  handleChange = (e) => {
+    this.setState({ keyword: e.target.value })
+  }
 
-  handleSubmit = (e) => {}
+  handleSubmit = (e) => {
+    // 本质上就是触发getActicleList事件
+    eventEmitter.emit('getArticleList', {
+      keyword: this.state.keyword,
+      page: 1,
+      pageSize: 10,
+    })
+  }
 
-  handlePressEnter = (e) => {}
+  handlePressEnter = () => {
+    this.handleSubmit()
+  }
   render() {
     const { keyword } = this.state
     return (

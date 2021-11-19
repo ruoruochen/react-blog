@@ -1,0 +1,30 @@
+.quicklink {
+  width: 300px;
+  height: calc(100% - 100px);
+  margin-left: 40px;
+  position: fixed;
+  right: 10px;
+  top: 80px;
+  .quick-title {
+    font-size: 18px;
+  }
+  .quick-list {
+    height: 65vh;
+    overflow-y: auto;
+    .list-item {
+      display: block;
+      padding: 7px 3px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      a {
+        color: #7f7f7f;
+      }
+      &:hover {
+        background-color: #f0f2f5;
+        a {
+          color: #40a9ff;
+        }
+      }
+    }
+  }
+}

@@ -18,7 +18,7 @@ export const components = {
     )
   },
   h3(props) {
-    console.log(props)
+    // eslint-disable-next-line
     return <h3 style={{ color: 'red' }} {...props} />
   },
 }

@@ -1,8 +1,14 @@
+.article-list {
+  width: calc(100% - 320px);
+}
 .article-list .article-list-item {
   padding: 16px 20px;
   border: 1px solid #ebedf0;
+  transition: all 0.2s linear;
+  overflow: hidden;
 }
 .article-list .article-list-item:hover {
+  cursor: pointer;
   background: #effbff;
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
 }
@@ -17,4 +23,23 @@
 .article-list .article-list-item .list-item-posttime {
   font-size: 12px;
   margin-left: 30px;
+}
+.article-list .article-list-item .article-detail {
+  max-height: 270px;
+  overflow: hidden;
+}
+.article-list .article-list-item .list-item-others {
+  margin-top: 10px;
+}
+.article-list .article-list-item .list-item-others .comment-count {
+  margin: 0 7px;
+}
+.article-list .article-list-item .list-item-others .view-count {
+  margin-left: 7px;
+}
+.article-list .article-list-item .list-item-others .anticon-tags {
+  margin-right: 7px;
+}
+.article-list .article-list-item .tag-list {
+  display: inline-block;
 }

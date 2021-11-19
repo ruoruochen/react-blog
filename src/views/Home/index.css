@@ -1,0 +1,3 @@
+.app-home .ant-pagination {
+  width: calc(100% - 320px);
+}
