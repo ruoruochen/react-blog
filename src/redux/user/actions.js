@@ -1,5 +1,6 @@
 import * as TYPES from '@/redux/types'
 import axios from '@/utils/axios'
+import eventEmitter from '@/utils/events'
 import { message } from 'antd'
 // thunk函数
 export const login = (params) => (dispatch) => {
@@ -14,7 +15,9 @@ export const login = (params) => (dispatch) => {
         type: TYPES.USER_LOGIN_SUCCESS,
         payload: res.data,
       })
-      message.success(`登陆成功,欢迎您 ${res?.username}`)
+      // TODO：如何在SignModal中感知登录成功或失败
+      eventEmitter.emit('openSignModal', { visible: false })
+      message.success(`登陆成功,欢迎您 ${res?.data?.username}`)
     },
     // TODO:如何获取meta.msg 区分不同的登录失败原因
     (e) => {

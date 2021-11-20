@@ -2,7 +2,7 @@ import axios from 'axios'
 import { API_BASE_URL } from '@/config'
 
 import { message } from 'antd'
-import { getToken } from '@/utils/getToken'
+import { getToken } from '@/utils'
 
 // 创建axios
 const service = axios.create({
@@ -15,7 +15,7 @@ service.interceptors.request.use(
   (config) => {
     const token = getToken()
     if (token) {
-      config.header.common['Authorization'] = token
+      config.headers.Authorization = token
     }
     return config
   },

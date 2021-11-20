@@ -13,38 +13,48 @@ export default class Search extends Component {
     this.setState({ keyword: e.target.value })
   }
 
-  handleSubmit = (e) => {
-    // 本质上就是触发getActicleList事件
+  handleCloseClick = () => {
+    this.setState({ keyword: '' })
+    this.handleSubmit('')
+  }
+
+  handleSubmit = (keyword) => {
+    // 本质上就是触发getActicleList事件,清空其他所有条件
     eventEmitter.emit('getArticleList', {
-      keyword: this.state.keyword,
+      keyword: keyword,
       page: 1,
       pageSize: 10,
+      tag: '',
     })
   }
 
   handlePressEnter = () => {
-    this.handleSubmit()
+    this.handleSubmit(this.state.keyword)
   }
   render() {
     const { keyword } = this.state
+    console.log('keyword:', keyword)
     return (
       <div id="search-box">
         <Icon
           type="search"
           className="search-icon"
-          onClick={(e) =>
-            this.props.history.push(`/?page=1&keyword=${keyword}`)
-          }
+          onClick={(e) => e.stopPropagation()}
         />
         <Input
           type="text"
           value={keyword}
           onChange={this.handleChange}
-          onBlur={this.handleSubmit}
           onPressEnter={this.handlePressEnter}
-          className="search-input"
+          id="search-input"
           placeholder="搜索文章"
-          style={{ width: 200 }}
+          suffix={
+            <Icon
+              type="close-circle"
+              className={keyword === '' ? 'suffix-hidden' : ''}
+              onClick={this.handleCloseClick}
+            />
+          }
         />
       </div>
     )

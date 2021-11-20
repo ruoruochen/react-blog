@@ -43,15 +43,27 @@
       top: 0.5px;
       cursor: pointer;
     }
-    .search-input {
+    #search-input {
       font-size: 14px;
-      width: 200px;
+      width: 300px;
       border: 0;
       -webkit-box-shadow: none;
       box-shadow: none;
       background: transparent;
       &::placeholder {
         color: #a3b1bf;
+      }
+    }
+    .ant-input-affix-wrapper {
+      width: auto;
+      .ant-input-suffix {
+        top: 60%;
+      }
+      .anticon-close-circle {
+        color: #656565;
+      }
+      .suffix-hidden {
+        display: none;
       }
     }
   }
@@ -70,6 +82,10 @@
   // user info
   .header-userInfo {
     padding: 0 20px 0 16px;
+    .username {
+      padding-top: 2px;
+      cursor: pointer;
+    }
     button {
       margin: 0 8px;
     }

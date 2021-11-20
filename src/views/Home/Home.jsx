@@ -4,16 +4,16 @@ import { connect } from 'react-redux'
 import ArticleList from '@/components/ArticleList'
 import QuickLink from '@/components/QuickLink'
 import eventEmitter from '@/utils/events'
+import { Default_Params } from '@/utils'
 import { getArticleList } from '@/redux/article/actions'
 import './index.css'
 class Home extends Component {
   componentDidMount() {
-    // 监听emiiter
     this.emiter = eventEmitter.addListener(
       'getArticleList',
       this.getArticleListFn
     )
-    eventEmitter.emit('getArticleList')
+    eventEmitter.emit('getArticleList', Default_Params)
   }
 
   componentWillUnmount() {
@@ -24,8 +24,9 @@ class Home extends Component {
   }
 
   getArticleListFn = (params) => {
-    const { dispatch, params: stateParams } = this.props
-    dispatch(getArticleList({ ...stateParams, params }))
+    console.log('emit getArticleListFn')
+    const { dispatch } = this.props
+    dispatch(getArticleList(params))
   }
 
   showTotal = (total) => {
@@ -33,7 +34,6 @@ class Home extends Component {
   }
 
   onPageChange = (page, pageSize) => {
-    console.log(`change page as ${page}、${pageSize}`)
     eventEmitter.emit('getArticleList', {
       page,
       pageSize,
@@ -41,16 +41,16 @@ class Home extends Component {
   }
 
   showSizeChange = (current, size) => {
-    console.log(`change size ,befor ${current}、${size}`)
     eventEmitter.emit('getArticleList', {
-      page: current ? current : 1,
+      page: current,
       pageSize: size,
     })
   }
 
   render() {
+    console.log(this.props, 'props')
     const { count: total, articleList: list, loading, params } = this.props
-    console.log('loading:', loading)
+    const { page: current } = params || {}
     return (
       <Spin tip="Loading..." spinning={loading}>
         <div className="app-home">
@@ -73,6 +73,8 @@ class Home extends Component {
           )}
           {/* 分页组件 */}
           <Pagination
+            hideOnSinglePage
+            current={current}
             total={total}
             showSizeChanger
             showQuickJumper

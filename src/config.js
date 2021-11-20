@@ -1,3 +1,4 @@
+// 一些基础配置信息
 import { Icon } from 'antd'
 import { CSDNIcon, LocationIcon } from '@/components/SvgIcon'
 // Header Title
@@ -5,6 +6,8 @@ export const HEADER_BLOG_NAME = '蒻蒻陈的博客'
 
 // API_BASE_URL
 export const API_BASE_URL = 'http://127.0.0.1:6060'
+
+// SideBar 常量数据
 export const SIDEBAR = {
   avatarSrc: './assets/images/avatar.jpg',
   title: 'RuoRuoChen',

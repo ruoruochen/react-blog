@@ -1,13 +1,33 @@
 import React, { Component } from 'react'
 import { SIDEBAR } from '@/config'
-import { Divider, Tag } from 'antd'
-import { Link } from 'react-router-dom'
+import { Divider } from 'antd'
+import SidebarTag from './SidebarTag'
+import axios from '@/utils/axios'
 import './sidebar.css'
 export default class Sidebar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      tagList: [{ name: '全部' }],
+    }
+  }
+
+  componentDidMount() {
+    this.getTagList()
+  }
+
+  getTagList = () => {
+    axios.get('/tag/list').then((res) => {
+      console.log(res.data)
+      this.setState({ tagList: [{ name: '全部' }, ...res?.data] })
+    })
+  }
+
   // tagList从Props进来 即redux传递
   render() {
-    const { tagList = [{ name: '浏览器1111' }, { name: 'HTTPsss' }] } =
-      this.props
+    const {
+      tagList = [{ name: '全部' }, { name: 'Node' }, { name: '服务器与运维' }],
+    } = this.state
     return (
       <aside className="app-sidebar">
         {/* TODO：为什么无法访问相对路径的图像 */}
@@ -44,11 +64,7 @@ export default class Sidebar extends Component {
         </div>
         <Divider orientation="left">标签</Divider>
         <div className="tag-list">
-          {tagList.map((tag, index) => (
-            <Tag key={tag.name} color="magenta">
-              <Link to={`tags/${tag.name}`}>{tag.name}</Link>
-            </Tag>
-          ))}
+          <SidebarTag tagList={tagList}></SidebarTag>
         </div>
       </aside>
     )

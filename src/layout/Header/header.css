@@ -40,16 +40,28 @@
   top: 0.5px;
   cursor: pointer;
 }
-.app-header #search-box .search-input {
+.app-header #search-box #search-input {
   font-size: 14px;
-  width: 200px;
+  width: 300px;
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   background: transparent;
 }
-.app-header #search-box .search-input::placeholder {
+.app-header #search-box #search-input::placeholder {
   color: #a3b1bf;
+}
+.app-header #search-box .ant-input-affix-wrapper {
+  width: auto;
+}
+.app-header #search-box .ant-input-affix-wrapper .ant-input-suffix {
+  top: 60%;
+}
+.app-header #search-box .ant-input-affix-wrapper .anticon-close-circle {
+  color: #656565;
+}
+.app-header #search-box .ant-input-affix-wrapper .suffix-hidden {
+  display: none;
 }
 .app-header .header-nav {
   display: flex;
@@ -62,6 +74,10 @@
 }
 .app-header .header-userInfo {
   padding: 0 20px 0 16px;
+}
+.app-header .header-userInfo .username {
+  padding-top: 2px;
+  cursor: pointer;
 }
 .app-header .header-userInfo button {
   margin: 0 8px;

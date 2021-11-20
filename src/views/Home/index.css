@@ -1,3 +1,9 @@
 .app-home .ant-pagination {
   width: calc(100% - 320px);
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.app-home .no-data {
+  margin-top: 20%;
+  width: calc(100% - 320px);
 }

@@ -1,14 +1,13 @@
 import React from 'react'
 import { Divider, Icon } from 'antd'
-import ReactMarkdown from 'react-markdown'
-import gfm from 'remark-gfm'
-import { components } from './highlights.js'
 import ArticleTag from './ArticleTag'
+import Markdown from '@/components/Markdown'
 import { useNavigate } from 'react-router-dom'
 export default function ArticleListItem(props) {
   const { data } = props
   const navigate = useNavigate()
   const handleClick = (e) => {
+    e.stopPropagation()
     navigate(`detail/${data?.id}`, { replace: true })
   }
 
@@ -22,12 +21,7 @@ export default function ArticleListItem(props) {
       </Divider>
 
       {/* 主内容模块 */}
-      <ReactMarkdown
-        components={components}
-        children={data.content}
-        remarkPlugins={[gfm]}
-        className="article-detail"
-      />
+      <Markdown content={data?.content}></Markdown>
 
       <div className="list-item-others">
         <Icon type="message" />

@@ -2,7 +2,7 @@ import React from 'react'
 import { Divider, Tag, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 export default function ArticleTag(props) {
-  const { tagList } = props
+  const { tagList = [] } = props
   return (
     <div className="tag-list">
       {tagList.length > 0 && (

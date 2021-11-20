@@ -29,13 +29,28 @@ export default function userReducer(state = defaultState, action) {
     case TYPES.USER_LOGIN_SUCCESS:
       const { username, userId, role, github = null, token } = payload || {}
       save('userInfo', { username, userId, role, github, token })
-      return { ...state, username, userId, role, github, loading: false }
+      return {
+        ...state,
+        username: username,
+        userId,
+        role,
+        github,
+        loading: false,
+      }
     case TYPES.USER_LOGIN_ERROR:
       return { ...state, loading: false, error: payload }
     case TYPES.USER_LOGOUT:
       console.log('logout')
       remove('userInfo')
-      return { ...defaultState }
+      return {
+        loading: false,
+        username: '',
+        role: 2,
+        userId: 0,
+        github: null,
+        error: null,
+      }
+
     case TYPES.USER_REGISTER_BEGIN:
       return { ...state, loading: true }
     case TYPES.USER_REGISTER_SUCCESS:

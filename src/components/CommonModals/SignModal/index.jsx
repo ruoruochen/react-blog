@@ -26,8 +26,6 @@ class SignModal extends Component {
 
   // 提交表单
   handleSubmit = (e) => {
-    console.log('submit2sss2', this.props.form)
-
     e.preventDefault()
     this.props.form.validateFieldsAndScroll((errors, values) => {
       if (errors) return
