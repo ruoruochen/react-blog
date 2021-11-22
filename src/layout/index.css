@@ -14,3 +14,7 @@
   flex-grow: 1;
   margin: 0 20px;
 }
+.container-box .main-container .app-article-spin .ant-spin-container {
+  width: 100%;
+  display: flex;
+}

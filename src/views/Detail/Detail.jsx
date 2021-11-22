@@ -4,7 +4,9 @@ import { Spin, Icon, Divider } from 'antd'
 import ArticleTag from '@/components/ArticleList/ArticleTag.jsx'
 import Markdown from '@/components/Markdown'
 import Comment from '@/components/Comment'
+import Navigation from '@/components/Navigation/Navigation.jsx'
 import axios from '@/utils/axios'
+import './index.css'
 export default class Detail extends Component {
   constructor(props) {
     super(props)
@@ -28,10 +30,24 @@ export default class Detail extends Component {
     })
   }
 
+  setCommentList = (list) => {
+    this.setState((state) => ({
+      articleData: {
+        ...state.articleData,
+        comments: list,
+      },
+    }))
+  }
+
   render() {
     const { loading, articleData: data, articleId } = this.state
+    console.log(<Markdown content={data?.content}></Markdown>)
     return (
-      <Spin tip="loading" spinning={loading}>
+      <Spin
+        tip="loading"
+        spinning={loading}
+        wrapperClassName="app-article-spin"
+      >
         <article className="app-article">
           <div className="post-content">
             <h1 className="post-title">{data?.title}</h1>
@@ -51,8 +67,14 @@ export default class Detail extends Component {
             </div>
           </div>
           <Markdown content={data?.content}></Markdown>
-          <Comment comments={data?.comments} articleId={articleId}></Comment>
+          <Comment
+            comments={data?.comments}
+            articleId={articleId}
+            setCommentList={this.setCommentList}
+          ></Comment>
         </article>
+        {/* TODO：锚点矫正 */}
+        <Navigation content={data?.content || ''}></Navigation>
       </Spin>
     )
   }

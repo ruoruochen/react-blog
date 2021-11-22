@@ -9,15 +9,17 @@ class Comment extends Component {
       userId = '',
       articleId = '',
       username = '',
+      setCommentList,
     } = this.props
-    console.log(this.props)
     return (
       <div className="discuss-container">
         <div className="discuss-head">
           <div className="discuss-count">共有 {comments?.length}条评论</div>
           <CommentEditor
+            comments={comments}
             userId={userId}
             articleId={articleId}
+            setCommentList={setCommentList}
             url="discuss/add"
           ></CommentEditor>
         </div>
@@ -26,7 +28,8 @@ class Comment extends Component {
           articleId={articleId}
           userId={userId}
           username={username}
-          url="discuss/comments"
+          setCommentList={setCommentList}
+          url="discuss/add"
         />
       </div>
     )

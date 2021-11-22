@@ -1,0 +1,33 @@
+.app-article {
+  width: calc(100% - 250px);
+  padding: 0 15px;
+}
+.app-article .post-content {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 20px;
+}
+.app-article .post-content .post-title {
+  color: #0d1a26;
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 0;
+}
+.app-article .post-content .article-desc {
+  font-size: 12px;
+}
+.app-article .post-content .article-desc .anticon-tags,
+.app-article .post-content .article-desc .anticon-message,
+.app-article .post-content .article-desc .anticon-eye {
+  margin-right: 7px;
+}
+.app-article .post-content .article-desc .anticon-eye {
+  margin-left: 7px;
+}
+.navigation {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  width: 250px;
+}

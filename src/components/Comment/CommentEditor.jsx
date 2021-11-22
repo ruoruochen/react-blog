@@ -38,7 +38,7 @@ export default class CommentEditor extends Component {
       submitting: true,
     })
 
-    const { userId, articleId } = this.props
+    const { userId, articleId, setCommentList } = this.props
 
     // 验证用户身份
     if (!userId) {
@@ -52,12 +52,13 @@ export default class CommentEditor extends Component {
         userId: userId,
         content: this.state.value,
       })
-      .then(() => {
+      .then((res) => {
         this.setState({
           submitting: false,
           value: '',
         })
         message.success('评论成功！')
+        setCommentList(res?.data?.rows)
       })
   }
 
