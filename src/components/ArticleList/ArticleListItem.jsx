@@ -8,7 +8,7 @@ export default function ArticleListItem(props) {
   const navigate = useNavigate()
   const handleClick = (e) => {
     e.stopPropagation()
-    navigate(`detail/${data?.id}`, { replace: true })
+    navigate(`/detail/${data?.id}`)
   }
 
   return (

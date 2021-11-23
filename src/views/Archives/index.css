@@ -1,0 +1,16 @@
+.app-archives {
+  text-align: center;
+}
+.app-archives .archives-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.app-archives .timeline-list .ant-timeline-item-content {
+  font-size: 16px;
+}
+.app-archives .timeline-list .ant-timeline-item-content a {
+  color: #8590a6;
+}
+.app-archives .timeline-list .ant-timeline-item-content a:hover {
+  color: #1890ff;
+}

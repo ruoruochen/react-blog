@@ -10,6 +10,11 @@ const navList = [
     link: '/categories',
   },
   {
+    icon: 'edit',
+    title: '归档',
+    link: '/archives',
+  },
+  {
     icon: 'user',
     title: '关于',
     link: '/about',
