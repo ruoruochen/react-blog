@@ -28,7 +28,7 @@ export default class Categories extends Component {
     // 获取文章
     axios
       .get('article/list', {
-        params: { ...params, all: true },
+        params: { ...params },
       })
       .then((res) => {
         this.setState({ data: res?.data?.rows, dataCount: res.data?.count })

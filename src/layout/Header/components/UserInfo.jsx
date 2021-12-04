@@ -13,7 +13,7 @@ class UserInfo extends Component {
         {role === 1 && (
           <Menu.Item>
             {/* TODO */}
-            <span>导入文章</span>
+            <span onClick={this.handleUpload}>导入文章</span>
           </Menu.Item>
         )}
         {role === 1 && (
@@ -48,6 +48,12 @@ class UserInfo extends Component {
     // 触发openSignModal事件
     this.eventEmitter = emitter.emit('openSignModal', {
       ...config,
+      visible: true,
+    })
+  }
+
+  handleUpload = () => {
+    emitter.emit('openUploadModal', {
       visible: true,
     })
   }

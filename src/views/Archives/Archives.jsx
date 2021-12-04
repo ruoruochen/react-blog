@@ -9,16 +9,10 @@ export default class Archives extends Component {
     this.state = { data: [], dataCount: 0 }
   }
   componentDidMount() {
-    axios
-      .get('article/list', {
-        params: {
-          all: true,
-        },
-      })
-      .then((res) => {
-        console.log(res?.data?.rows)
-        this.setState({ data: res?.data?.rows, dataCount: res.data?.count })
-      })
+    axios.get('article/list').then((res) => {
+      console.log(res?.data?.rows)
+      this.setState({ data: res?.data?.rows, dataCount: res.data?.count })
+    })
   }
   render() {
     return (

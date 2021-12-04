@@ -29,6 +29,14 @@ const routes = [
         path: 'detail/:articleId',
         element: <Detail />,
       },
+      {
+        path: '*',
+        element: (
+          <main>
+            <p>There's nothing here!</p>
+          </main>
+        ),
+      },
     ],
   },
 ]

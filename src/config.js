@@ -36,3 +36,22 @@ export const SIDEBAR = {
     },
   },
 }
+
+export const ABOUT = {
+  myself: {
+    name: 'RuoRuoChen',
+    age: 21,
+    hobby: '代码、健身、乒乓球、看番',
+    address: '北京-海淀',
+  },
+  blog: {
+    client: ['React', 'Antd', 'Redux'],
+    admin: ['Vue', 'Vue-Router', 'ElementUI'],
+    server: ['Node', 'Express', 'Mysql'],
+  },
+  connect: {
+    qq: '2679330388',
+    github: 'https://github.com/ruoruochen',
+    csdn: 'https://blog.csdn.net/weixin_43786756',
+  },
+}
