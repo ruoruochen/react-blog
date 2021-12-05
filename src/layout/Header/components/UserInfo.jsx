@@ -3,6 +3,7 @@ import { Dropdown, Menu, Button } from 'antd'
 import { connect } from 'react-redux'
 import { logout } from '@/redux/user/actions'
 import emitter from '@/utils/events.js'
+import { getToken } from '@/utils'
 class UserInfo extends Component {
   // 先默认username通过props传进来
 
@@ -18,7 +19,7 @@ class UserInfo extends Component {
         )}
         {role === 1 && (
           <Menu.Item>
-            <span>后台管理</span>
+            <span onClick={this.handleEnterAdmin}>后台管理</span>
           </Menu.Item>
         )}
         <Menu.Item>
@@ -56,6 +57,11 @@ class UserInfo extends Component {
     emitter.emit('openUploadModal', {
       visible: true,
     })
+  }
+
+  handleEnterAdmin = () => {
+    const otherWindow = window.open('http://localhost:8080/#/welcome', '_self')
+    otherWindow.postMessage(getToken(), '*')
   }
 
   render() {

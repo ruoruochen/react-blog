@@ -24,11 +24,4 @@ service.interceptors.request.use(
     Promise.reject(error)
   }
 )
-
-// // 拦截响应 查看权限
-// service.interceptors.request.use((response) => {
-//   // 可以在这上报事件
-//   return response.data
-// })
-
 export default service
