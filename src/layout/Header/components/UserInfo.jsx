@@ -61,7 +61,7 @@ class UserInfo extends Component {
 
   handleEnterAdmin = () => {
     const otherWindow = window.open('http://localhost:8080/#/welcome', '_self')
-    otherWindow.postMessage(getToken(), '*')
+    otherWindow.postMessage(JSON.stringify(getToken()), '*')
   }
 
   render() {
